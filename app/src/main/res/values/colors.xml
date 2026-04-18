@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 2D Minimalist Liquid Glass Monochrome Palette (No Gradients, No Neon, No 3D) -->
+    <!-- Backgrounds -->
+    <color name="bp_black_pure">#08080A</color>
+    <color name="bp_black_surface">#101015</color>
+    <color name="bp_glass_smoked">#16161D</color>
+    <color name="bp_glass_translucent">#2216161D</color>
+    <color name="bp_glass_pressed">#22222D</color>
+
+    <!-- Fine 1px Liquid Glass Borders -->
+    <color name="bp_glass_border">#22222C</color>
+    <color name="bp_glass_border_active">#3A3A4A</color>
+
+    <!-- Flat Typography & Icons -->
+    <color name="bp_white_platinum">#F4F4F7</color>
+    <color name="bp_gray_titanium">#A4A4AF</color>
+    <color name="bp_gray_muted">#686875</color>
+    <color name="bp_gray_dark">#2C2C38</color>
+
+    <!-- Flat Status Indicators (Matte, Non-Neon) -->
+    <color name="bp_status_active">#10B981</color>
+    <color name="bp_status_inactive">#686875</color>
+    <color name="bp_status_blocked">#EF4444</color>
+    <color name="bp_status_warning">#F59E0B</color>
+
+    <!-- System Bars -->
+    <color name="bp_statusbar">#08080A</color>
+    <color name="bp_nav_surface">#0C0C10</color>
+</resources>
