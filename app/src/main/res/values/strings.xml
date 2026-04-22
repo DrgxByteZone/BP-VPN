@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BP VPN</string>
+    <string name="app_full_name">Black Panther VPN</string>
+    <string name="app_tagline">Aplikasi VPN Cepat &amp; Aman</string>
+    
+    <!-- Branding & Permanent Credits -->
+    <string name="credits_brand">Created by: Axel &amp; M.B.A</string>
+    <string name="credits_developed_by">Dibuat oleh Axel &amp; M.B.A</string>
+    <string name="credits_copyright">© 2026 Black Panther VPN. All Rights Reserved.</string>
+    <string name="quick_tile_label">BP VPN</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">VPN</string>
+    <string name="nav_firewall">Aplikasi</string>
+    <string name="nav_settings">Pengaturan</string>
+    <string name="nav_logs">Log</string>
+    <string name="nav_about">Tentang</string>
+
+    <!-- Dashboard Strings -->
+    <string name="status_protected">Terhubung</string>
+    <string name="status_unprotected">Tidak Terhubung</string>
+    <string name="status_connecting">Menghubungkan...</string>
+    <string name="tap_to_protect">Ketuk untuk mengaktifkan VPN</string>
+    <string name="tap_to_disconnect">Ketuk untuk memutuskan koneksi</string>
+    <string name="public_ip_title">Alamat IP Publik</string>
+    <string name="server_title">Server Terpilih</string>
+    <string name="connected_subtext">Koneksi internet Anda terenkripsi &amp; aman</string>
+
+    <!-- Firewall Strings -->
+    <string name="firewall_title">Firewall Aplikasi</string>
+    <string name="firewall_subtitle">Atur izin akses internet untuk aplikasi yang terpasang</string>
+    <string name="search_apps">Cari aplikasi...</string>
+    <string name="app_access_allowed">Diizinkan</string>
+    <string name="app_access_blocked">Diblokir</string>
+
+    <!-- Logs Strings -->
+    <string name="logs_title">Log Lalu Lintas</string>
+    <string name="logs_empty">Belum ada aktivitas. Aktifkan VPN untuk melihat log.</string>
+    <string name="logs_filter_all">Semua</string>
+    <string name="logs_filter_blocked">Diblokir</string>
+    <string name="logs_filter_allowed">Diteruskan</string>
+    <string name="clear_logs">Hapus Log</string>
+
+    <!-- Notification Strings -->
+    <string name="notif_channel_name">Layanan BP VPN</string>
+    <string name="notif_channel_desc">Menampilkan status koneksi VPN yang sedang berjalan</string>
+    <string name="notif_connected_title">BP VPN: Terhubung</string>
+    <string name="notif_connected_text">Koneksi internet terenkripsi dan aman</string>
+</resources>

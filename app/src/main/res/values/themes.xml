@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Application Theme: 2D Minimalist Liquid Glass -->
+    <style name="Theme.BPVPN" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/bp_white_platinum</item>
+        <item name="colorSecondary">@color/bp_gray_titanium</item>
+        <item name="android:statusBarColor">@color/bp_statusbar</item>
+        <item name="android:navigationBarColor">@color/bp_nav_surface</item>
+        <item name="android:windowBackground">@color/bp_black_pure</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
