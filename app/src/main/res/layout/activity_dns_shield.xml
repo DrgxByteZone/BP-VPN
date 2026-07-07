@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#090A10"
+    android:orientation="vertical">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="14dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_badge_rounded"
+            android:contentDescription="Kembali"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="#F4F4F7" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DNS-over-HTTPS Shield"
+                android:textColor="#F4F4F7"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Enkripsi DoH Tanpa Log &amp; Filter Kustom"
+                android:textColor="#85889A"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="32dp">
+
+            <!-- Profile Selector Card -->
+            <com.axel.mba.bpvpn.ui.view.LiquidGlassCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.08"
+                        android:text="PROFIL DOH UPSTREAM"
+                        android:textColor="#10B981"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="14dp"
+                        android:text="Pilih penyedia enkripsi DNS untuk melindungi kueri dari pantauan ISP."
+                        android:textColor="#85889A"
+                        android:textSize="12sp" />
+
+                    <RadioGroup
+                        android:id="@+id/rgDnsProfiles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/rbCfStandard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/sel_radio_option_card"
+                            android:button="@null"
+                            android:drawableEnd="@drawable/sel_radio_check_indicator"
+                            android:lineSpacingExtra="2dp"
+                            android:paddingStart="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingEnd="16dp"
+                            android:paddingBottom="12dp"
+                            android:text="Cloudflare (1.1.1.1)\nResolusi kueri privat tanpa pencatatan log"
+                            android:textColor="@color/sel_radio_text_color"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rbCfSecurity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/sel_radio_option_card"
+                            android:button="@null"
+                            android:drawableEnd="@drawable/sel_radio_check_indicator"
+                            android:lineSpacingExtra="2dp"
+                            android:paddingStart="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingEnd="16dp"
+                            android:paddingBottom="12dp"
+                            android:text="Cloudflare Security (1.1.1.2)\nBlokir domain malware dan phishing"
+                            android:textColor="@color/sel_radio_text_color"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rbCfFamily"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/sel_radio_option_card"
+                            android:button="@null"
+                            android:drawableEnd="@drawable/sel_radio_check_indicator"
+                            android:lineSpacingExtra="2dp"
+                            android:paddingStart="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingEnd="16dp"
+                            android:paddingBottom="12dp"
+                            android:text="Cloudflare Family (1.1.1.3)\nBlokir malware dan konten dewasa"
+                            android:textColor="@color/sel_radio_text_color"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rbAdGuard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/sel_radio_option_card"
+                            android:button="@null"
+                            android:drawableEnd="@drawable/sel_radio_check_indicator"
+                            android:lineSpacingExtra="2dp"
+                            android:paddingStart="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingEnd="16dp"
+                            android:paddingBottom="12dp"
+                            android:text="AdGuard DNS\nBlokir iklan dan domain pelacak"
+                            android:textColor="@color/sel_radio_text_color"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rbQuad9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/sel_radio_option_card"
+                            android:button="@null"
+                            android:drawableEnd="@drawable/sel_radio_check_indicator"
+                            android:lineSpacingExtra="2dp"
+                            android:paddingStart="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingEnd="16dp"
+                            android:paddingBottom="12dp"
+                            android:text="Quad9 (9.9.9.9)\nProteksi domain berbahaya via intelijen siber"
+                            android:textColor="@color/sel_radio_text_color"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/rbGoogle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/sel_radio_option_card"
+                            android:button="@null"
+                            android:drawableEnd="@drawable/sel_radio_check_indicator"
+                            android:lineSpacingExtra="2dp"
+                            android:paddingStart="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingEnd="16dp"
+                            android:paddingBottom="12dp"
+                            android:text="Google DNS (8.8.8.8)\nResolusi DNS publik Google yang andal"
+                            android:textColor="@color/sel_radio_text_color"
+                            android:textSize="13sp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </com.axel.mba.bpvpn.ui.view.LiquidGlassCardView>
+
+            <!-- Custom Rule Input Card -->
+            <com.axel.mba.bpvpn.ui.view.LiquidGlassCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.08"
+                        android:text="BLOKIR DOMAIN KUSTOM"
+                        android:textColor="#10B981"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="12dp"
+                        android:text="Cegat domain tertentu langsung pada resolver lokal perangkat."
+                        android:textColor="#85889A"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/etDomainRule"
+                            android:layout_width="0dp"
+                            android:layout_height="46dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_search_bar"
+                            android:hint="contoh: tracker.example.com"
+                            android:inputType="textUri"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:textColor="#F4F4F7"
+                            android:textColorHint="#50546B"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/btnAddRule"
+                            android:layout_width="wrap_content"
+                            android:layout_height="46dp"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/bg_pill_emerald"
+                            android:gravity="center"
+                            android:paddingStart="18dp"
+                            android:paddingEnd="18dp"
+                            android:text="Tambah"
+                            android:textColor="#090A10"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.axel.mba.bpvpn.ui.view.LiquidGlassCardView>
+
+            <!-- Custom Rules Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:letterSpacing="0.08"
+                    android:text="DAFTAR DOMAIN TERBLOKIR"
+                    android:textColor="#686B80"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCustomRules"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never" />
+
+            <!-- Permanent Attribution -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+                android:text="@string/credits_brand"
+                android:textColor="#4E5164"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
