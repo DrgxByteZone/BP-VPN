@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#090A10">
+
+    <!-- Main Content Container -->
+    <LinearLayout
+        android:id="@+id/mainContentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Clean Top Bar with Logo & Credits -->
+        <LinearLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingTop="18dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="14dp">
+
+            <com.axel.mba.bpvpn.ui.view.PantherLogoView
+                android:layout_width="34dp"
+                android:layout_height="34dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_full_name"
+                    android:textColor="#F4F4F7"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text="@string/credits_brand"
+                    android:textColor="#85889A"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvModeBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge_rounded"
+                android:paddingStart="12dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="5dp"
+                android:text="OFFLINE"
+                android:textColor="#686B80"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Pages Container -->
+        <FrameLayout
+            android:id="@+id/pageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- 1. Clean Dashboard Page -->
+            <ScrollView
+                android:id="@+id/pageDashboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:overScrollMode="never"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingStart="22dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="22dp"
+                    android:paddingBottom="24dp">
+
+                    <!-- Power Toggle Button -->
+                    <com.axel.mba.bpvpn.ui.view.LiquidShieldButtonView
+                        android:id="@+id/btnShieldToggle"
+                        android:layout_width="168dp"
+                        android:layout_height="168dp"
+                        android:layout_marginTop="16dp" />
+
+                    <!-- Status Text -->
+                    <TextView
+                        android:id="@+id/tvProtectionStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/status_unprotected"
+                        android:textColor="#686B80"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProtectionSubtext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/tap_to_protect"
+                        android:textColor="#85889A"
+                        android:textSize="13sp" />
+
+                    <!-- Unified Connection Details Card -->
+                    <com.axel.mba.bpvpn.ui.view.LiquidGlassCardView
+                        android:id="@+id/cardServerSelector"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="26dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingStart="18dp"
+                            android:paddingTop="16dp"
+                            android:paddingEnd="18dp"
+                            android:paddingBottom="16dp">
+
+                            <!-- Row 1: Server Selection -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/ivSelectedServerIcon"
+                                    android:layout_width="38dp"
+                                    android:layout_height="38dp"
+                                    android:background="@drawable/bg_badge_rounded"
+                                    android:contentDescription="@null"
+                                    android:padding="9dp"
+                                    android:src="@drawable/ic_server"
+                                    app:tint="#10B981" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="14dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="LOKASI SERVER"
+                                        android:textColor="#686B80"
+                                        android:textSize="10sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvSelectedServerName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="Otomatis (Tercepat)"
+                                        android:textColor="#F4F4F7"
+                                        android:textSize="15sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvSelectedServerDesc"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="Cloudflare Anycast • Latensi Rendah"
+                                        android:textColor="#85889A"
+                                        android:textSize="11sp" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_badge_rounded"
+                                    android:paddingStart="12dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingEnd="12dp"
+                                    android:paddingBottom="6dp"
+                                    android:text="GANTI"
+                                    android:textColor="#F4F4F7"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Subtle Divider -->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="#1E2130" />
+
+                            <!-- Row 2: Public IP & ISP -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="38dp"
+                                    android:layout_height="38dp"
+                                    android:background="@drawable/bg_badge_rounded"
+                                    android:contentDescription="@null"
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_ip_globe"
+                                    app:tint="#85889A" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="14dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="IP PUBLIK ANDA"
+                                        android:textColor="#686B80"
+                                        android:textSize="10sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvLiveIpAddress"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="Memeriksa..."
+                                        android:textColor="#F4F4F7"
+                                        android:textSize="15sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/tvLiveLocation"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="Mendeteksi lokasi jaringan..."
+                                        android:textColor="#85889A"
+                                        android:textSize="11sp" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/tvRefreshIp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_badge_rounded"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:paddingStart="12dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingEnd="12dp"
+                                    android:paddingBottom="6dp"
+                                    android:text="Segarkan"
+                                    android:textColor="#85889A"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </com.axel.mba.bpvpn.ui.view.LiquidGlassCardView>
+
+                    <!-- Hidden Compatibility Views -->
+                    <View
+                        android:id="@+id/cardModeSelector"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvCurrentModeName"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvBlockedCounter"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvDataSavedCounter"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:visibility="gone" />
+
+                    <!-- Permanent Footer Credit -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="28dp"
+                        android:layout_marginBottom="12dp"
+                        android:text="@string/credits_developed_by"
+                        android:textColor="#4E5164"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- 2. Per-App Firewall Page -->
+            <LinearLayout
+                android:id="@+id/pageFirewall"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/firewall_title"
+                    android:textColor="#F4F4F7"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/firewall_subtitle"
+                    android:textColor="#85889A"
+                    android:textSize="12sp" />
+
+                <!-- Split Tunneling Quick Action Card -->
+                <com.axel.mba.bpvpn.ui.view.LiquidGlassCardView
+                    android:id="@+id/btnOpenSplitTunnelConfig"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="10dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <ImageView
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:background="@drawable/bg_badge_rounded"
+                            android:contentDescription="@null"
+                            android:padding="9dp"
+                            android:src="@drawable/ic_split_route"
+                            app:tint="#10B981" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Split Tunneling"
+                                android:textColor="#F4F4F7"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Pengecualian aplikasi perbankan dan rute VPN"
+                                android:textColor="#85889A"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_rounded"
+                            android:paddingStart="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="5dp"
+                            android:text="ATUR"
+                            android:textColor="#F4F4F7"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.axel.mba.bpvpn.ui.view.LiquidGlassCardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAppsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- 3. Enterprise Security Settings Page -->
+            <ScrollView
+                android:id="@+id/pageSettings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:overScrollMode="never"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pengaturan Keamanan"
+                        android:textColor="#F4F4F7"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Pengaturan Kill Switch, obfuskasi DPI, DoH, dan audit kebocoran"
+                        android:textColor="#85889A"
+                        android:textSize="12sp" />
+
+                    <!-- Section 1: Proteksi Jaringan -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="KONEKSI &amp; PROTOKOL"
+                        android:textColor="#686B80"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <!-- Card 1: Kill Switch & Auto-Reconnect -->
+                    <com.axel.mba.bpvpn.ui.view.LiquidGlassCardView
+                        android:id="@+id/cardSettingKillSwitch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_badge_rounded"
+                                android:contentDescription="@null"
+                                android:padding="9dp"
+                                android:src="@drawable/ic_kill_switch"
+                                app:tint="#EF4444" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="14dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Kill Switch &amp; Reconnect"
+                                    android:textColor="#F4F4F7"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Blokir internet jika VPN terputus tiba-tiba"
+                                    android:textColor="#85889A"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="›"
+                                android:textColor="#686B80"
+                                android:textSize="22sp" />
+                        </LinearLayout>
+                    </com.axel.mba.bpvpn.ui.view.LiquidGlassCardView>
+
+                    <!-- Card 2: Obfuskasi DPI Handshake -->
+                    <com.axel.mba.bpvpn.ui.view.LiquidGlassCardView
+                        android:id="@+id/cardSettingObfuscation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_badge_rounded"
+                                android:contentDescription="@null"
+                                android:padding="9dp"
+                                android:src="@drawable/ic_obfuscation"
+                                app:tint="#10B981" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="14dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Obfuskasi DPI"
+                                    android:textColor="#F4F4F7"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Pengacakan padding paket untuk meminimalkan deteksi ISP"
+                                    android:textColor="#85889A"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="›"
+                                android:textColor="#686B80"
+                                android:textSize="22sp" />
+                        </LinearLayout>
+                    </com.axel.mba.bpvpn.ui.view.LiquidGlassCardView>
+
+                    <!-- Section 2: DNS & Kebocoran -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="DNS &amp; PRIVASI"
+                        android:textColor="#686B80"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <!-- Card 3: DoH Shield -->
+                    <com.axel.mba.bpvpn.ui.view.LiquidGlassCardView
+                        android:id="@+id/cardSettingDnsShield"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_badge_rounded"
+                                android:contentDescription="@null"
+                                android:padding="9dp"
+                                android:src="@drawable/ic_dns"
+                                app:tint="#3B82F6" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="14dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="DNS-over-HTTPS (DoH)"
+                                    android:textColor="#F4F4F7"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Enkripsi kueri DNS: Cloudflare, Quad9, AdGuard"
+                                    android:textColor="#85889A"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="›"
+                                android:textColor="#686B80"
+                                android:textSize="22sp" />
+                        </LinearLayout>
+                    </com.axel.mba.bpvpn.ui.view.LiquidGlassCardView>
+
+                    <!-- Card 4: Security Audit & Leak Sentinel -->
+                    <com.axel.mba.bpvpn.ui.view.LiquidGlassCardView
+                        android:id="@+id/cardSettingSecurityAudit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_badge_rounded"
+                                android:contentDescription="@null"
+                                android:padding="9dp"
+                                android:src="@drawable/ic_security_audit"
+                                app:tint="#10B981" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="14dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Audit Kebocoran"
+                                    android:textColor="#F4F4F7"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Uji kebocoran kueri DNS, WebRTC STUN, dan IPv6"
+                                    android:textColor="#85889A"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="›"
+                                android:textColor="#686B80"
+                                android:textSize="22sp" />
+                        </LinearLayout>
+                    </com.axel.mba.bpvpn.ui.view.LiquidGlassCardView>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- 4. About Page -->
+            <ScrollView
+                android:id="@+id/pageAbout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <com.axel.mba.bpvpn.ui.view.PantherLogoView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginTop="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/app_full_name"
+                        android:textColor="#F4F4F7"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Versi 1.0"
+                        android:textColor="#85889A"
+                        android:textSize="13sp" />
+
+                    <com.axel.mba.bpvpn.ui.view.LiquidGlassCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="18dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="PENGEMBANG"
+                                android:textColor="#686B80"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/credits_brand"
+                                android:textColor="#F4F4F7"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="#1E2130" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="JARINGAN"
+                                android:textColor="#686B80"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="WireGuard Official Userspace Tunnel • Cloudflare Anycast"
+                                android:textColor="#F4F4F7"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </com.axel.mba.bpvpn.ui.view.LiquidGlassCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:text="@string/credits_copyright"
+                        android:textColor="#4E5164"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </ScrollView>
+
+        </FrameLayout>
+
+        <!-- Elegant 4-Tab Bottom Navigation Bar -->
+        <LinearLayout
+            android:id="@+id/bottomNavBar"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="#0D0E16"
+            android:baselineAligned="false"
+            android:elevation="8dp"
+            android:orientation="horizontal">
+
+            <!-- Tab 1: VPN -->
+            <LinearLayout
+                android:id="@+id/tabDashboard"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivTabDashboard"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_shield_protected"
+                    app:tint="#F4F4F7" />
+
+                <TextView
+                    android:id="@+id/tvTabDashboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/nav_dashboard"
+                    android:textColor="#F4F4F7"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Tab 2: Aplikasi -->
+            <LinearLayout
+                android:id="@+id/tabFirewall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivTabFirewall"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_firewall_filter"
+                    app:tint="#686B80" />
+
+                <TextView
+                    android:id="@+id/tvTabFirewall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/nav_firewall"
+                    android:textColor="#686B80"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Tab 3: Pengaturan -->
+            <LinearLayout
+                android:id="@+id/tabSettings"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivTabSettings"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_settings_tune"
+                    app:tint="#686B80" />
+
+                <TextView
+                    android:id="@+id/tvTabSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/nav_settings"
+                    android:textColor="#686B80"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Tab 4: Tentang -->
+            <LinearLayout
+                android:id="@+id/tabAbout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivTabAbout"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_info"
+                    app:tint="#686B80" />
+
+                <TextView
+                    android:id="@+id/tvTabAbout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/nav_about"
+                    android:textColor="#686B80"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Liquid Opening Splash Screen Overlay -->
+    <FrameLayout
+        android:id="@+id/splashOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#090A10"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:id="@+id/splashContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.axel.mba.bpvpn.ui.view.PantherLogoView
+                android:id="@+id/splashPantherLogo"
+                android:layout_width="96dp"
+                android:layout_height="96dp" />
+
+            <TextView
+                android:id="@+id/splashTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/app_full_name"
+                android:textColor="#F4F4F7"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/splashCredits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/credits_brand"
+                android:textColor="#85889A"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>
