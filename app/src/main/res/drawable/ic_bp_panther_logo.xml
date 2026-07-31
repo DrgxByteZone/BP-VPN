@@ -1,0 +1,29 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- 2D Geometric Minimalist Black Panther Silhouette (Flat, No Gradients, No 3D, No Neon) -->
+    <!-- Panther Ears & Crown -->
+    <path
+        android:fillColor="#F4F4F7"
+        android:pathData="M18,22 L32,34 L38,20 L48,26 L58,20 L64,34 L78,22 L70,44 L82,54 L66,62 L60,54 L48,58 L36,54 L30,62 L14,54 L26,44 Z" />
+    
+    <!-- Eyes (Flat Geometric Cutout) -->
+    <path
+        android:fillColor="#08080A"
+        android:pathData="M32,44 L40,46 L34,50 Z" />
+    <path
+        android:fillColor="#08080A"
+        android:pathData="M64,44 L56,46 L62,50 Z" />
+
+    <!-- Sleek Minimalist Muzzle & Jaw -->
+    <path
+        android:fillColor="#F4F4F7"
+        android:pathData="M48,62 L54,72 L48,82 L42,72 Z" />
+    
+    <!-- Jaw Contour Lines -->
+    <path
+        android:fillColor="#F4F4F7"
+        android:pathData="M34,66 L42,76 L48,84 L54,76 L62,66 L56,64 L48,72 L40,64 Z" />
+</vector>
